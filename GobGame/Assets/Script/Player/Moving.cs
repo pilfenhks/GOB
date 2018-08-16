@@ -30,5 +30,10 @@ public class Moving : MonoBehaviour
         {
             transform.position -= transform.right * speedPlayer * Time.deltaTime;
         }
+
+        //tirarBomba
+        if (Input.GetKey(KeyCode.B))
+        {
+        }
     }
 }
