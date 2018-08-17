@@ -5,35 +5,34 @@ using UnityEngine;
 public class Moving : MonoBehaviour
 {
     public float speedPlayer;
-
+    Player player;
+    private void Start()
+    {
+        player = FindObjectOfType<Player>();
+    }
     private void Update()
     {
         Acciones();//inicia la funcion de las acciones
     }
-   
+
     public void Acciones()
     {
         //teclas
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && player.tocaMuroU == false)
         {
             transform.position += transform.up * speedPlayer * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && player.tocaMuroD == false)
         {
             transform.position -= transform.up * speedPlayer * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && player.tocaMuroR == false)
         {
             transform.position += transform.right * speedPlayer * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && player.tocaMuroL == false)
         {
             transform.position -= transform.right * speedPlayer * Time.deltaTime;
-        }
-
-        //tirarBomba
-        if (Input.GetKey(KeyCode.B))
-        {
         }
     }
 }
